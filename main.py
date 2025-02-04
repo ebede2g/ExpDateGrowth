@@ -82,10 +82,15 @@ def gfdt(n,j):	#generate future data and time array
 # 10 / 1.38  ~ в межах місяця
 # 10 / 1.82  ~ в межах року
 
+def twlist(n,j):	# n must be and an integer; j>=1
+ arr1 = gfdt(n,j)
+ print("вивожу невідсортований список")
+ print_dt(arr1)
+ adj_arr1 = atwh(arr1)
+ print("вивожу список після atwh")
+ print_dt(adj_arr1)
 
-arr1 = gfdt(10,1.38)
-print("вивожу невідсортований список")
-print_dt(arr1)
-adj_arr1 = atwh(arr1)
-print("вивожу список після atwh")
-print_dt(adj_arr1)
+
+n = int(input("n: "))  
+j = float(input("j: ")) 
+twlist(n,j)
