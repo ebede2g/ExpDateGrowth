@@ -56,11 +56,12 @@ def print_dt(dt_arr):
     for dt in dt_arr:
         print(dt.strftime("%Y-%m-%d %H:%M:%S"))
 
-def gfdt(n,j):	#generate future data and time array
+
+def gfdt2(n,t):  #generate future data and time array
+    j = math.pow(t/koef,(1/(n-1)))
     now = datetime.now()
     dt_arr = []
     j_h = math.pow(j, 1 / (24 * 60))
-
     if j == 1:
         for i in range(30):
             ft = now + timedelta(days=i/koef,minutes = 30)
@@ -74,8 +75,13 @@ def gfdt(n,j):	#generate future data and time array
                 dt_arr.append(ft)
     else:
         dt_arr.append(now + timedelta(minutes = 30))
-
     return dt_arr
+
+
+
+
+
+
 
 
 # 6  / 1.445 ~ в межах тижня
@@ -83,7 +89,7 @@ def gfdt(n,j):	#generate future data and time array
 # 10 / 1.82  ~ в межах року
 
 def twlist(n,j):	# n must be and an integer; j>=1
- arr1 = gfdt(n,j)
+ arr1 = gfdt2(n,j)
  print("вивожу невідсортований список")
  print_dt(arr1)
  adj_arr1 = atwh(arr1)
